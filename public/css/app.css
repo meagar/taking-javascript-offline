@@ -1,0 +1,154 @@
+html, html body {
+  background: #f5efe6;
+  font-size:12px;
+}
+
+.clear { clear:both; }
+
+.left-bar {
+  float:left;
+  height:100%;
+  padding:30px;
+}
+
+nav.header {
+  display:block;
+  padding:0 0 5px;
+}
+
+nav.header h1 {
+  background:center left no-repeat url(/img/bosscamp-logo.png);
+  padding:60px 130px;
+  display:block;
+  color:#000;
+  font-size:16px;
+  text-decoration:none;
+}
+
+nav.header h1 span, nav.header h1 a {
+  font-size:20px;
+  font-weight:bold;
+  padding-right:20px;
+  border-right:1px solid #000;
+  margin-right:20px;
+}
+
+nav.header h1 a {
+  font-weight:normal;
+}
+
+h2 {
+  color: #aa9c84;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 16px;
+  margin: 0 0 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#content {
+  padding-left:250px;
+}
+
+ul {
+  padding:0; margin:0;
+}
+
+li.post {
+  position:relative;
+  border:1px solid #ddd;
+  border-radius:5px;
+  list-style-type:none;
+  width: 240px;
+  height: 235px;
+  float: left;
+  margin: 0 20px 20px 0;
+  position: relative;
+  text-align: left;
+  background: #fff;
+  padding: 15px;
+  text-rendering: optimizeLegibility;
+  text-shadow: none;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 3px;
+}
+
+li.post h3 {
+  font-family: ProximaNova, 'Helvetica Neue', helvetica, arial, sans-serif;
+  font-size: 19px;
+  margin: 0 0 3px;
+  line-height: 1.1em;
+  word-wrap: break-word;
+  font-weight:900;
+}
+
+li.post .about {
+  font-size: 16px;
+  line-height: 1.2em;
+  word-wrap: break-word;
+  color: #aa9c84;
+}
+
+li.post .last-updated {
+  font-size:12px;
+  line-height: 1.2em;
+  word-wrap: break-word;
+  color: #aa9c84;
+  margin-top:7px;
+}
+
+li.post .buttons {
+  position: absolute;
+  bottom:10px;
+  right:10px;
+}
+
+li.post .buttons a {
+  padding:0px 5px;
+  font-weight:bold;
+  font-size:smaller;
+}
+
+h3.upgrade {
+  text-align:center;
+  float:left;
+}
+
+h3.upgrade em {
+  font-weight:900;
+}
+
+.feature {
+  position:relative;
+  border:1px solid #ddd;
+  border-radius:5px;
+  list-style-type:none;
+  width: 30%;
+  height: 200px;
+  float: left;
+  margin: 0 20px 20px 0;
+  position: relative;
+  text-align: left;
+  background: #fff;
+  padding: 15px;
+  text-rendering: optimizeLegibility;
+  text-shadow: none;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 3px;
+  position:relative;
+}
+
+.buttons {
+  clear:both;
+}
+
+.feature ul {
+  padding-left:25px;
+}
+
+.feature  .price {
+  position:absolute;
+  bottom:10px;
+  right:10px;
+}

@@ -1,0 +1,28 @@
+html
+  head
+    title Bosscamp
+
+    link(href="/css/bootstrap.css" rel="stylesheet" type="text/css")
+    link(href="/css/app.css" rel="stylesheet" type="text/css")
+
+    script(src="/js/jquery-1.11.0.js")
+    script(src="/js/underscore.js")
+    script(src="/js/backbone.js")
+    script(src="/js/handlebars-v1.3.0.js")
+    script(src="/js/moment-with-langs.js")
+  body
+    .container
+      nav.header
+        h1(href="/")
+          span Bosscamp
+          block header
+
+      .clear
+
+      .left-bar
+        block left_bar
+
+      #content.content
+        block content
+
+    block templates

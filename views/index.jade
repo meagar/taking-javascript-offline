@@ -1,0 +1,38 @@
+extends application
+
+block header
+  a.upgrade(href="/upgrade") Upgrade
+  | An exciting Appcache demo for jQueryTO
+
+block left_bar
+  nav.controls
+    .buttons
+      a.btn.btn-default(href="#posts/new") New Project
+
+block templates
+  script(src="/js/app.js")
+
+  template(id="tmpl-index")
+    h2 All Projects
+
+    ul#posts
+
+  template(id="tmpl-post")
+    h3 {{title}}
+    .about {{about}}
+    .last-updated Last updated {{last_updated}}
+    .buttons
+      a.delete(href="#") Delete
+      ||
+      a.edit(href="#posts/{{_id}}") Edit
+
+  template(id="tmpl-post-form")
+    form(role="form")
+      .form-group
+        label(for="title") Title
+        input#title.form-control(type="text" value="{{title}}")
+      .form-group
+        label(for="about") About
+        textarea.form-control#about {{about}}
+      .form-group
+        input.form-control(type="submit" value="Save")
