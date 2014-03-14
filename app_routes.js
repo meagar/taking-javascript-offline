@@ -19,10 +19,5 @@ app.get('/offline', function (req, res) {
   res.render('offline.jade')
 });
 
-app.get('/cache_update', function (req, res) {
-  console.log('GET /cache_update'.green);
-  res.render('cache_update.jade');
-});
-
 
 
