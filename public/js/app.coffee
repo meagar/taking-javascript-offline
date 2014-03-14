@@ -64,8 +64,11 @@ class App.Views.Index extends App.Views.View
   initialize: ->
     @listenTo @collection, 'sync', @render
 
+    $(window).bind 'online', => @render()
+    $(window).bind 'offline', => @render()
+
   render: ->
-    @$el.html(@template())
+    @$el.html(@template(online: navigator.onLine))
 
     @$('ul#posts').html(
       for post in @collection.models
