@@ -9,6 +9,16 @@ app.get('/upgrade', function (req, res) {
   res.render('upgrade.jade');
 });
 
+app.get('/checkout', function (req, res) {
+  console.log('GET /checkout'.green);
+  res.render('checkout.jade');
+});
+
+app.get('/offline', function (req, res) {
+  console.log('GET /offline'.green);
+  res.render('offline.jade')
+});
+
 app.get('/cache_update', function (req, res) {
   console.log('GET /cache_update'.green);
   res.render('cache_update.jade');
