@@ -1,27 +1,26 @@
 CACHE MANIFEST
 
-# <%= manifestVersion() %>
-
 CACHE:
-# v2
 
 # JS
-<% jsFiles.forEach(function (file) { -%>
-/js/<%= file %>
-<% }); -%>
+/js/app.js
+/js/backbone.js
+/js/handlebars-v1.3.0.js
+/js/jquery-1.11.0.js
+/js/moment-with-langs.js
+/js/underscore.js
 
 # CSS
-<% cssFiles.forEach(function (file) { -%>
-/css/<%= file %>
-<% }); -%>
+/css/app.css
+/css/bootstrap.css
+
+# assets
+/img/bosscamp-logo.png
 
 # Routes
 /
 /upgrade
 
-# assets
-/img/bosscamp-logo.png
-
 NETWORK:
+
 /api/posts
-#/api/posts/:id ???

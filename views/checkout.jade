@@ -1,5 +1,5 @@
 doctype html
-html(manifest='/cache.appcache')
+html
   head
     title Bosscamp
 
@@ -22,9 +22,11 @@ html(manifest='/cache.appcache')
       .clear
 
       .left-bar
-        block left_bar
 
       #content.content
-        block content
+        h1 Thanks!
+
+        a(href="/") Back
 
     block templates
+
