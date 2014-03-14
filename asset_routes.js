@@ -5,7 +5,7 @@ function send(path, type, res) {
     res.setHeader('Content-Type', type);
     res.write(fs.readFileSync(path), {encoding: 'utf8'});
     res.end();
-  }, global.SLOW_ASSETS ? 5000 : 1);
+  }, global.SLOW_ASSETS ? 1000 : 1);
 }
 
 // Serve static assets with a bit of a delay
