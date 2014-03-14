@@ -1,9 +1,27 @@
+CACHE MANIFEST
+
+# <%= manifestVersion() %>
+
 CACHE:
-# v1.0
-<%= files %>
-<% for (key in locals) { %>
-  <%= key %>
-<% } %>
-<%= locals.settings %>
+# v2
+
+# JS
+<% jsFiles.forEach(function (file) { -%>
+/js/<%= file %>
+<% }); -%>
+
+# CSS
+<% cssFiles.forEach(function (file) { -%>
+/css/<%= file %>
+<% }); -%>
+
+# Routes
+/
+/upgrade
+
+# assets
+/img/bosscamp-logo.png
+
 NETWORK:
-/api/*
+/api/posts
+#/api/posts/:id ???
