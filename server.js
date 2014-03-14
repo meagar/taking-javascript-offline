@@ -3,10 +3,8 @@ var express = require('express'),
     fs = require('fs'),
     exec = require('exec-sync');
 
-SLOW_ASSETS = true;
-SLOW_CACHE = true;
-
-manifestVersion = function () { return exec('git rev-parse head'); };
+SLOW_ASSETS = false;
+SLOW_CACHE = false;
 
 app = express();
 app.configure(function () {
@@ -14,22 +12,6 @@ app.configure(function () {
   app.use(express.bodyParser());
   app.set('view engine', 'ejs');
 })
-
-// Appcache Routes
-app.get('/cache.appcache', function (req, res) {
-  console.log(("GET /" + req.params.version + "/cache.appcache").yellow)
-
-  // Requeset for current cache version
-  res.set('Content-Type', 'text/cache-manifest');
-  res.render('cache.ejs', {
-    jsFiles: fs.readdirSync('public/js/').filter(function (f) {
-      return f.match(/\.js$/);
-    }),
-    cssFiles: fs.readdirSync('public/css/').filter(function (f) {
-      return f.match(/\.css$/);
-    })
-  });
-});
 
 require('./app_routes');
 require('./api_routes');
