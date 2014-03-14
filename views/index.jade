@@ -14,7 +14,11 @@ block templates
 
   template(id="tmpl-index")
     h2 All Projects
+    | {{#if online}}
     ul#posts
+    | {{else}}
+    h3 You're offline!
+    | {{/if}}
 
   template(id="tmpl-post")
     h3 {{title}}
