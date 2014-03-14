@@ -120,12 +120,21 @@
     Index.prototype.templateName = 'index';
 
     Index.prototype.initialize = function() {
-      return this.listenTo(this.collection, 'sync', this.render);
+      var _this = this;
+      this.listenTo(this.collection, 'sync', this.render);
+      $(window).bind('online', function() {
+        return _this.render();
+      });
+      return $(window).bind('offline', function() {
+        return _this.render();
+      });
     };
 
     Index.prototype.render = function() {
       var post;
-      this.$el.html(this.template());
+      this.$el.html(this.template({
+        online: navigator.onLine
+      }));
       this.$('ul#posts').html((function() {
         var _i, _len, _ref2, _results;
         _ref2 = this.collection.models;

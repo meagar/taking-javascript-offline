@@ -1,0 +1,22 @@
+html(manifest='/cache.appcache')
+  head
+    title Updating the cache!
+
+    link(href="/css/bootstrap.css" rel="stylesheet" type="text/css")
+    link(href="/css/app.css" rel="stylesheet" type="text/css")
+
+    script(src="/js/jquery-1.11.0.js")
+    script(src="/js/cache_update.js")
+
+  body.cache-update
+    .container
+      .checking
+        h1 Checking for updates...
+
+      .updating(style="display:none")
+        h1 Performing Critical Updates!
+
+        .progress
+          .progress-bar(role="progressbar" style="width: 0%;")
+            .sr-only 60% Complete
+
