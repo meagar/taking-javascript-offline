@@ -1,5 +1,5 @@
 doctype html
-html(manifest='/cache.appcache')
+html(manifest=manifestPath)
   head
     title Bosscamp
 
@@ -11,8 +11,15 @@ html(manifest='/cache.appcache')
     script(src="/js/backbone.js")
     script(src="/js/handlebars-v1.3.0.js")
     script(src="/js/moment-with-langs.js")
-    //-script(src="/js/appcache.js")
+    script(src="/js/appcache.js")
   body
+    .updating(style="display:none")
+      h1 Performing Critical Updates!
+
+      .progress
+        .progress-bar(role="progressbar" style="width: 0%;")
+          .sr-only 60% Complete
+
     .container
       nav.header
         h1(href="/")

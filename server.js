@@ -16,12 +16,17 @@ app.configure(function () {
 })
 
 // Appcache Routes
-app.get('/cache.appcache', function (req, res) {
+app.get('/:version/cache.appcache', function (req, res) {
   console.log(("GET /cache.appcache").yellow)
-
-  // Requeset for current cache version
-  res.set('Content-Type', 'text/cache-manifest');
-  res.render('cache.ejs');
+  if (req.params.version == manifestVersion()) {
+    // Requeset for current cache version
+    res.set('Content-Type', 'text/cache-manifest');
+    res.render('cache.ejs');
+  } else {
+    res.status(404);
+    res.write("Not found!");
+    res.end();
+  }
 });
 
 require('./app_routes');

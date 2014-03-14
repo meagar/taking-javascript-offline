@@ -1,7 +1,10 @@
+function manifestPath() {
+  return '/' + manifestVersion() + '/cache.appcache';
+}
 
 app.get('/', function (req, res) {
   console.log('GET /'.green);
-  res.render('index.jade');
+  res.render('index.jade', { manifestPath: manifestPath() } );
 });
 
 app.get('/upgrade', function (req, res) {
