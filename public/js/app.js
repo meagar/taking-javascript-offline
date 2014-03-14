@@ -122,10 +122,7 @@
     Index.prototype.initialize = function() {
       var _this = this;
       this.listenTo(this.collection, 'sync', this.render);
-      $(window).bind('online', function() {
-        return _this.render();
-      });
-      return $(window).bind('offline', function() {
+      return $(window).bind('online, offline', function() {
         return _this.render();
       });
     };

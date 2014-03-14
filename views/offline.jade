@@ -1,5 +1,6 @@
 doctype html
 html(manifest='/cache.appcache')
+html
   head
     title Bosscamp
 
@@ -16,14 +17,10 @@ html(manifest='/cache.appcache')
       nav.header
         h1(href="/")
           span Bosscamp
-          block header
 
       .clear
 
-      .left-bar
-        block left_bar
-
       #content.content
-        block content
+        h3 You're offline!
 
-    block templates
+        h3 Seek the Internet!
