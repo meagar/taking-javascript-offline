@@ -12,6 +12,7 @@ var Post = new mongoose.Schema({
 var PostModel = mongoose.model('Post', Post);
 
 app.get('/api/posts', function (req, res) {
+  console.log('GET /api/posts'.magenta)
   PostModel.find(function (err, posts) {
     if (err) throw err;
     res.send(posts)
@@ -26,6 +27,7 @@ app.get('/api/posts/:id', function (req, res) {
 });
 
 app.post('/api/posts', function (req, res) {
+  console.log('POST /api/posts'.magenta)
   var post = new PostModel({
     title: req.body.title,
     about: req.body.about,
@@ -38,6 +40,7 @@ app.post('/api/posts', function (req, res) {
 });
 
 app.put('/api/posts/:id', function (req, res) {
+  console.log(('PUT /api/posts/' + req.params.id).magenta)
   PostModel.findById(req.params.id, function (err, post) {
     if (err) throw err;
     post.title = req.body.title;
@@ -50,6 +53,7 @@ app.put('/api/posts/:id', function (req, res) {
 });
 
 app.delete('/api/posts/:id', function (req, res) {
+  console.log(('DELETE /api/posts/' + req.params.id).magenta)
   PostModel.findById(req.params.id, function (err, post) {
     if (err) throw err;
     post.remove(function (err) {

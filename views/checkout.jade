@@ -1,5 +1,4 @@
 doctype html
-//-html(manifest='/cache.appcache')
 html
   head
     title Bosscamp
@@ -12,6 +11,7 @@ html
     script(src="/js/backbone.js")
     script(src="/js/handlebars-v1.3.0.js")
     script(src="/js/moment-with-langs.js")
+    //-script(src="/js/appcache.js")
   body
     .container
       nav.header
@@ -22,9 +22,11 @@ html
       .clear
 
       .left-bar
-        block left_bar
 
       #content.content
-        block content
+        h1 Thanks!
+
+        a(href="/") Back
 
     block templates
+
