@@ -64,11 +64,11 @@ class App.Views.Index extends App.Views.View
   initialize: ->
     @listenTo @collection, 'sync', @render
 
-    $(window).bind 'online', => @render()
-    $(window).bind 'offline', => @render()
+    #$(window).bind 'online', => @render()
+    #$(window).bind 'offline', => @render()
 
   render: ->
-    @$el.html(@template(online: navigator.onLine))
+    @$el.html(@template(online: true))
 
     @$('ul#posts').html(
       for post in @collection.models
@@ -118,14 +118,31 @@ class App.Views.PostForm extends App.Views.View
 # Data
 #
 
+App.Stores =
+  Posts:
+    database: 'posts',
+    description: 'posts are posts',
+    migrations: [
+      {
+        version: '1',
+        migrate: (transaction, next) ->
+          store = transaction.db.createObjectStore('posts')
+          next()
+      }
+    ]
+
 class App.Models.Post extends Backbone.Model
   idAttribute: '_id'
-  url: ->
-    if @id then "/api/posts/#{@id}" else "/api/posts"
+  database: App.Stores.Posts
+  storeName: 'posts'
+  # url: ->
+  #  if @id then "/api/posts/#{@id}" else "/api/posts"
 
 class App.Collections.Posts extends Backbone.Collection
   model: App.Models.Post
-  url: '/api/posts'
+  #url: '/api/posts'
+  database: App.Stores.Posts
+  storeName: 'posts'
 
 $ ->
   App.router = new App.Router()

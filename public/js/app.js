@@ -120,20 +120,13 @@
     Index.prototype.templateName = 'index';
 
     Index.prototype.initialize = function() {
-      var _this = this;
-      this.listenTo(this.collection, 'sync', this.render);
-      $(window).bind('online', function() {
-        return _this.render();
-      });
-      return $(window).bind('offline', function() {
-        return _this.render();
-      });
+      return this.listenTo(this.collection, 'sync', this.render);
     };
 
     Index.prototype.render = function() {
       var post;
       this.$el.html(this.template({
-        online: navigator.onLine
+        online: true
       }));
       this.$('ul#posts').html((function() {
         var _i, _len, _ref2, _results;
@@ -225,6 +218,23 @@
 
   })(App.Views.View);
 
+  App.Stores = {
+    Posts: {
+      database: 'posts',
+      description: 'posts are posts',
+      migrations: [
+        {
+          version: '1',
+          migrate: function(transaction, next) {
+            var store;
+            store = transaction.db.createObjectStore('posts');
+            return next();
+          }
+        }
+      ]
+    }
+  };
+
   App.Models.Post = (function(_super) {
     __extends(Post, _super);
 
@@ -235,13 +245,9 @@
 
     Post.prototype.idAttribute = '_id';
 
-    Post.prototype.url = function() {
-      if (this.id) {
-        return "/api/posts/" + this.id;
-      } else {
-        return "/api/posts";
-      }
-    };
+    Post.prototype.database = App.Stores.Posts;
+
+    Post.prototype.storeName = 'posts';
 
     return Post;
 
@@ -257,7 +263,9 @@
 
     Posts.prototype.model = App.Models.Post;
 
-    Posts.prototype.url = '/api/posts';
+    Posts.prototype.database = App.Stores.Posts;
+
+    Posts.prototype.storeName = 'posts';
 
     return Posts;
 
